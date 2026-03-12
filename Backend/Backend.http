@@ -1,6 +1,51 @@
-@Backend_HostAddress = http://localhost:5289
+@rootURL = http://localhost:5289
 
-GET {{Backend_HostAddress}}/weatherforecast/
+### Weather API
+GET {{rootURL}}/weatherforecast/
 Accept: application/json
 
 ###
+
+### Get all books
+GET {{rootURL}}/api/book
+Accept: application/json
+
+###
+
+### Get book by id
+GET {{rootURL}}/api/book/1
+Accept: application/json
+
+###
+
+### Add new book
+POST {{rootURL}}/api/book
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Clean Code",
+  "author": "Robert C Martin",
+  "isbn": "9780132350884",
+  "publicationDate": "2008-08-01"
+}
+
+###
+
+### Update book
+PUT {{rootURL}}/api/book/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "title": "Atomic Habits",
+  "author": "James Clear",
+  "isbn": "9780735211292",
+  "publicationDate": "2018-10-16"
+}
+
+###
+
+### Delete book
+DELETE {{rootURL}}/api/book/1
+Accept: application/json
