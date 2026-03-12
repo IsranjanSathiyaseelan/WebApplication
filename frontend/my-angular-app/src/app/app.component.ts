@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { BookService } from './book.service';
 import { Book } from './book';
 import { FormsModule } from '@angular/forms';
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   editing: boolean = false;
   selectedBookId: number | null = null;
 
-  constructor(private bookService: BookService) {}
+  constructor(private bookService: BookService, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.loadBooks();
@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   loadBooks() {
     this.bookService.getBooks().subscribe(data => {
       this.books = data;
+      this.cdr.detectChanges();
     });
   }
 
@@ -38,9 +39,10 @@ export class AppComponent implements OnInit {
         this.cancelEdit();
       });
     } else {
-      this.bookService.addBook(this.newBook).subscribe(() => {
-        this.loadBooks();
+      this.bookService.addBook(this.newBook).subscribe((addedBook) => {
+        this.books = [...this.books, addedBook];
         this.resetForm();
+        this.cdr.detectChanges();
       });
     }
   }
