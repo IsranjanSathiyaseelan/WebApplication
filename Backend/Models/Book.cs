@@ -10,6 +10,6 @@
 
         public string Isbn { get; set; } = null!;
 
-        public DateTime PublicationDate { get; set; } 
+        public string PublicationDate { get; set; } = null!;
     }
 }
