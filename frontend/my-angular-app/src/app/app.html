@@ -1,0 +1,123 @@
+<div class="app-container">
+  <header class="app-header">
+    <h1 class="app-title">Book Management System</h1>
+    <p class="app-subtitle">Organize and manage your book collection</p>
+  </header>
+
+  <div class="content-wrapper">
+    <!-- Form Section -->
+    <div class="form-card">
+      <div class="form-header">
+        <h2 class="form-title">
+          {{ editing ? 'Edit Book' : 'Add New Book' }}
+        </h2>
+      </div>
+      
+      <form (ngSubmit)="addBook()" class="book-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="title" class="form-label">Title *</label>
+            <input 
+              id="title"
+              [(ngModel)]="newBook.title" 
+              name="title" 
+              placeholder="Enter book title" 
+              class="form-input"
+              required 
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="author" class="form-label">Author *</label>
+            <input 
+              id="author"
+              [(ngModel)]="newBook.author" 
+              name="author" 
+              placeholder="Enter author name" 
+              class="form-input"
+              required 
+            />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="isbn" class="form-label">ISBN</label>
+            <input 
+              id="isbn"
+              [(ngModel)]="newBook.isbn" 
+              name="isbn" 
+              placeholder="Enter ISBN" 
+              class="form-input"
+            />
+          </div>
+          
+          <div class="form-group">
+            <label for="publicationDate" class="form-label">Publication Date</label>
+            <input 
+              id="publicationDate"
+              type="date" 
+              [(ngModel)]="newBook.publicationDate" 
+              name="publicationDate"
+              class="form-input"
+            />
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            {{ editing ? 'Save Changes' : 'Add Book' }}
+          </button>
+          <button 
+            type="button" 
+            *ngIf="editing" 
+            (click)="cancelEdit()"
+            class="btn btn-secondary"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Table Section -->
+    <div class="table-card">
+      <div class="table-header">
+        <h2 class="table-title">Book Collection</h2>
+        <span class="book-count">{{ books.length }} books</span>
+      </div>
+      
+      <div class="table-container">
+        <table class="book-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>ISBN</th>
+              <th>Publication Date</th>
+              <th class="actions-column">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of books" class="book-row">
+              <td class="id-column">{{ book.id }}</td>
+              <td class="title-column">{{ book.title }}</td>
+              <td>{{ book.author }}</td>
+              <td class="isbn-column">{{ book.isbn }}</td>
+              <td>{{ book.publicationDate | date:'MMM d, y' }}</td>
+              <td class="actions-column">
+                <button (click)="editBook(book)" class="btn-edit" title="Edit book">
+                  Edit
+                </button>
+                <button (click)="deleteBook(book.id)" class="btn-delete" title="Delete book">
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

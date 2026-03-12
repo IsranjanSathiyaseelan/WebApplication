@@ -1,0 +1,292 @@
+/* Global Container */
+.app-container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding: 2rem;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.app-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* Content Wrapper */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Card Styles */
+.form-card,
+.table-card {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+}
+
+/* Form Header */
+.form-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.form-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* Form Layout */
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #555;
+  margin: 0;
+}
+
+.form-input {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #333;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  margin-top: 0.5rem;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  outline: none;
+}
+
+.btn-primary {
+  background: #333;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #555;
+}
+
+.btn-secondary {
+  background: #999;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #777;
+}
+
+/* Table Header */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.table-title {
+  font-size: 1.25rem;
+  color: #333;
+  margin: 0;
+  font-weight: 600;
+}
+
+.book-count {
+  background: #f0f0f0;
+  color: #555;
+  padding: 0.375rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+/* Table Container */
+.table-container {
+  overflow-x: auto;
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.book-table thead tr {
+  background: #fafafa;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.book-table th {
+  padding: 0.875rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.book-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s ease;
+}
+
+.book-table tbody tr:hover {
+  background-color: #fafafa;
+}
+
+.book-table td {
+  padding: 1rem;
+  color: #4a5568;
+}
+
+.id-column {
+  font-weight: 500;
+  color: #666;
+}
+
+.title-column {
+  font-weight: 500;
+  color: #333;
+}
+
+.isbn-column {
+  font-family: 'Courier New', monospace;
+  color: #666;
+}
+
+.actions-column {
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Table Action Buttons */
+.btn-edit,
+.btn-delete {
+  padding: 0.375rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin: 0 0.25rem;
+}
+
+.btn-edit {
+  background-color: #333;
+  color: white;
+  border-color: #333;
+}
+
+.btn-edit:hover {
+  background-color: #555;
+}
+
+.btn-delete {
+  background-color: #fff;
+  color: #d32f2f;
+  border-color: #d32f2f;
+}
+
+.btn-delete:hover {
+  background-color: #d32f2f;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .book-table {
+    font-size: 0.85rem;
+  }
+
+  .book-table th,
+  .book-table td {
+    padding: 0.75rem 0.5rem;
+  }
+}
